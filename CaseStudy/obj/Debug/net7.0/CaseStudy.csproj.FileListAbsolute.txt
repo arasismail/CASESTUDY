@@ -1,0 +1,17 @@
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\bin\Debug\net7.0\CaseStudy.exe
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\bin\Debug\net7.0\CaseStudy.deps.json
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\bin\Debug\net7.0\CaseStudy.runtimeconfig.json
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\bin\Debug\net7.0\CaseStudy.dll
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\bin\Debug\net7.0\CaseStudy.pdb
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.csproj.AssemblyReference.cache
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.AssemblyInfoInputs.cache
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.AssemblyInfo.cs
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.csproj.CoreCompileInputs.cache
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.csproj.CopyComplete
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.dll
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\refint\CaseStudy.dll
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.pdb
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\CaseStudy.genruntimeconfig.cache
+C:\Users\aras2\source\repos\CaseStudy\CaseStudy\obj\Debug\net7.0\ref\CaseStudy.dll
