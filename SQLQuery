@@ -1,0 +1,116 @@
+
+CREATE procedure [dbo].[generate_codes]  
+as  
+begin  
+  
+ declare @i int =1  
+ while(@i<1001)  
+ begin  
+  select dbo.generate_codes_func(@i)  
+  set @i=@i+1  
+ end  
+   
+end
+
+go
+
+-- =============================================    
+-- Author: ismail aras    
+-- Create date:     
+-- Description:     
+-- =============================================    
+CREATE FUNCTION generate_codes_func     
+(    
+  @lineNumber int   
+)    
+RETURNS varchar(8)    
+AS    
+BEGIN    
+     
+ declare @str1 varchar(10) ='ACDEFGHKLM'    
+ declare @str2 varchar(10) ='NPRTXYZ234'    
+ declare @str3 varchar(3) ='579'    
+     
+ declare @key int    
+ declare @sysDatetime1 varchar(8)    
+ declare @sysDatetime2 varchar(8)    
+ declare @store varchar(8)='';    
+     
+ set @sysDatetime1='2'+ substring( replace(replace(replace(replace((convert(varchar(50),SYSDATETIME())),' ',''),'-',''),':',''),'.','') ,17,5)+    
+   substring( replace(replace(replace(replace((convert(varchar(50),SYSDATETIME())),' ',''),'-',''),':',''),'.','') ,7,2)    
+     
+ set @sysDatetime2= substring( replace(replace(replace(replace((convert(varchar(50),SYSDATETIME())),' ',''),'-',''),':',''),'.','') ,9,8)    
+  
+ --if(@lineNumber%2=1)set @key = (((convert(int,@sysDatetime1)+convert(int,@sysDatetime2))+1011001+@lineNumber)%100000000)    
+ --else set @key = (((convert(int,@sysDatetime1)+convert(int,@sysDatetime2))+@lineNumber+1011001)%100000000)    
+ set @key = (((convert(int,@sysDatetime1)+convert(int,@sysDatetime2))+@lineNumber*999)%100000000)    
+  
+ declare @syc int=1    
+ declare @index int=0    
+ while(@syc<9)    
+ begin    
+     
+ set @index=substring(convert(varchar(8),@key),@syc,1)    
+     
+ if(@syc=1)set @store = @store+substring(@str3,((@index%3)+1),1)    
+ else if (@syc>1 and @syc<5)set @store = @store+substring(@str1,@index+1,1)    
+ else if (@syc>=5 )set @store = @store+substring(@str2,@index+1,1)    
+     
+ set @syc=@syc+1    
+ end    
+     
+ --select @store,@key    
+    
+ RETURN @store    
+    
+END 
+
+go
+  
+    
+CREATE procedure [dbo].[check_code]    
+@Code varchar(8),    
+@IsValid int out    
+as    
+begin    
+    
+    
+ declare @str1 varchar(10) ='ACDEFGHKLM'    
+ declare @str2 varchar(10) ='NPRTXYZ234'    
+ declare @str3 varchar(3) ='579'    
+     
+ declare @syc int=1    
+ declare @store varchar(1)=''    
+ declare @char varchar(1)    
+     
+ set @IsValid =1    
+     
+ while(@syc<9)    
+ begin    
+     
+ set @store=substring(@Code,@syc,1)    
+ --select @store    
+     
+ set @char=convert(varchar(1),substring(@Code,@syc,1))    
+     
+ if(@syc=1)    
+ begin     
+     
+  if (CHARINDEX(@char, @str3)=0) set @IsValid =0 ;    
+ end    
+ else if (@syc>1 and @syc<5)    
+ begin     
+     
+  if (CHARINDEX(@char, @str1)=0) set @IsValid =0 ;    
+ end    
+ else if (@syc>=5 )    
+ begin     
+      
+  if (CHARINDEX(@char, @str2)=0) set @IsValid =0 ;    
+ end    
+     
+ set @syc=@syc+1    
+ end    
+     
+     
+end
